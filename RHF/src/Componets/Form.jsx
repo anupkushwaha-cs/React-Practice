@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { FormState, useForm } from "react-hook-form";
 
-const Form = () => {
+const Form = ({setForm, setToggle}) => {
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
+
+
   const formSubmit = (data) =>{
+
+    setForm(prev => [...prev,data])
     console.log(data);
+    reset ();
+    setToggle(prev => !prev);
+
     
   }
 
@@ -48,6 +56,14 @@ const Form = () => {
             placeholder="Enter Mobile"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
           />
+
+              <input
+            {...register ("img",{ required: "Image is required",})}
+            type="url"
+            placeholder="Enter image link"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+          />
+
 
           <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 active:scale-[0.98] transition cursor-pointer">
             Create User
