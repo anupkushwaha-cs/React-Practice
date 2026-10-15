@@ -3,7 +3,7 @@ import { MyCount } from '../Context'
 import {useContext } from 'react'
 
 const App = () => {
-const {setCount, count} = useContext(MyCount)
+const {setCount, count} = useContext(MyCount);
 
 
   return (
@@ -16,4 +16,4 @@ const {setCount, count} = useContext(MyCount)
   )
 }
 
-export default App
+export default App;
